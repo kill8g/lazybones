@@ -1,0 +1,264 @@
+{
+    "tar\u5305\u89e3\u538b\u7f29": [
+        "tar",
+        "\u5305",
+        "\u89e3\u538b\u7f29"
+    ],
+    "tar\u6587\u4ef6\u89e3\u538b": [
+        "tar",
+        "\u6587\u4ef6",
+        "\u89e3\u538b"
+    ],
+    "tar.gz\u6587\u4ef6\u89e3\u538b": [
+        "tar",
+        ".",
+        "gz",
+        "\u6587\u4ef6",
+        "\u89e3\u538b"
+    ],
+    "tar.gz\u89e3\u538b\u547d\u4ee4": [
+        "tar",
+        ".",
+        "gz",
+        "\u89e3\u538b",
+        "\u547d\u4ee4"
+    ],
+    "\u6587\u4ef6\u5939\u538b\u7f29\u4e3atar": [
+        "\u6587\u4ef6\u5939",
+        "\u538b\u7f29",
+        "\u4e3a",
+        "tar"
+    ],
+    "tar\u538b\u7f29\u547d\u4ee4": [
+        "tar",
+        "\u538b\u7f29",
+        "\u547d\u4ee4"
+    ],
+    "zip\u538b\u7f29\u6587\u4ef6": [
+        "zip",
+        "\u538b\u7f29\u6587\u4ef6"
+    ],
+    "zip\u538b\u7f29\u547d\u4ee4": [
+        "zip",
+        "\u538b\u7f29",
+        "\u547d\u4ee4"
+    ],
+    "zip\u89e3\u538b\u7f29": [
+        "zip",
+        "\u89e3\u538b\u7f29"
+    ],
+    "zip\u6587\u4ef6\u89e3\u538b": [
+        "zip",
+        "\u6587\u4ef6",
+        "\u89e3\u538b"
+    ],
+    "\u65f6\u95f4\u6233\u8f6c\u65e5\u671f": [
+        "\u65f6\u95f4",
+        "\u6233",
+        "\u8f6c",
+        "\u65e5\u671f"
+    ],
+    "\u65e5\u671f\u8f6c\u65f6\u95f4\u6233": [
+        "\u65e5\u671f",
+        "\u8f6c",
+        "\u65f6\u95f4",
+        "\u6233"
+    ],
+    "\u65f6\u95f4\u8f6c\u6362": [
+        "\u65f6\u95f4",
+        "\u8f6c\u6362"
+    ],
+    "\u5f53\u524d\u65f6\u95f4\u6233": [
+        "\u5f53\u524d",
+        "\u65f6\u95f4",
+        "\u6233"
+    ],
+    "\u8bbe\u7f6e\u65f6\u95f4": [
+        "\u8bbe\u7f6e",
+        "\u65f6\u95f4"
+    ],
+    "\u8bbe\u7f6e\u65f6\u533a": [
+        "\u8bbe\u7f6e",
+        "\u65f6",
+        "\u533a"
+    ],
+    "\u67e5\u627e\u6587\u4ef6": [
+        "\u67e5\u627e\u6587\u4ef6"
+    ],
+    "find": [
+        "find"
+    ],
+    "\u67e5\u770b\u78c1\u76d8\u5360\u7528": [
+        "\u67e5\u770b",
+        "\u78c1\u76d8",
+        "\u5360\u7528"
+    ],
+    "urldecode": [
+        "urldecode"
+    ],
+    "urlencode": [
+        "urlencode"
+    ],
+    "url\u7f16\u7801\u89e3\u7801": [
+        "url",
+        "\u7f16\u7801",
+        "\u89e3\u7801"
+    ],
+    "unicode\u8f6c\u4e2d\u6587": [
+        "unicode",
+        "\u8f6c",
+        "\u4e2d\u6587"
+    ],
+    "\u6587\u4ef6\u662f\u5426\u5b58\u5728": [
+        "\u6587\u4ef6",
+        "\u662f\u5426",
+        "\u5b58\u5728"
+    ],
+    "\u6587\u4ef6\u5939\u662f\u5426\u5b58\u5728": [
+        "\u6587\u4ef6\u5939",
+        "\u662f\u5426",
+        "\u5b58\u5728"
+    ],
+    "getopts\u4f7f\u7528": [
+        "getopts",
+        "\u4f7f\u7528"
+    ],
+    "shell\u811a\u672c\u53c2\u6570\u89e3\u6790": [
+        "shell",
+        "\u811a\u672c",
+        "\u53c2\u6570",
+        "\u89e3\u6790"
+    ],
+    "\u67e5\u627e\u8fdb\u7a0b": [
+        "\u67e5\u627e",
+        "\u8fdb\u7a0b"
+    ],
+    "\u663e\u793a\u6240\u6709\u8fdb\u7a0b": [
+        "\u663e\u793a",
+        "\u6240\u6709",
+        "\u8fdb\u7a0b"
+    ],
+    "\u5b57\u7b26\u4e32\u5206\u5272": [
+        "\u5b57\u7b26\u4e32",
+        "\u5206\u5272"
+    ],
+    "\u5b57\u7b26\u4e32\u66ff\u6362": [
+        "\u5b57\u7b26\u4e32",
+        "\u66ff\u6362"
+    ],
+    "for\u5faa\u73af": [
+        "for",
+        "\u5faa\u73af"
+    ],
+    "\u6570\u503cfor\u5faa\u73af": [
+        "\u6570\u503c",
+        "for",
+        "\u5faa\u73af"
+    ],
+    "\u904d\u5386\u6570\u7ec4": [
+        "\u904d\u5386",
+        "\u6570\u7ec4"
+    ],
+    "while\u5faa\u73af": [
+        "while",
+        "\u5faa\u73af"
+    ],
+    "\u6587\u4ef6\u904d\u5386": [
+        "\u6587\u4ef6",
+        "\u904d\u5386"
+    ],
+    "\u9012\u5f52\u904d\u5386\u6587\u4ef6\u5939": [
+        "\u9012\u5f52",
+        "\u904d\u5386",
+        "\u6587\u4ef6\u5939"
+    ],
+    "\u67e5\u770b\u7aef\u53e3\u5360\u7528": [
+        "\u67e5\u770b",
+        "\u7aef\u53e3",
+        "\u5360\u7528"
+    ],
+    "if": [
+        "if"
+    ],
+    "\u5224\u65ad": [
+        "\u5224\u65ad"
+    ],
+    "\u8fdb\u5236\u8f6c\u6362": [
+        "\u8fdb\u5236",
+        "\u8f6c\u6362"
+    ],
+    "ssh key gen": [
+        "ssh",
+        " ",
+        "key",
+        " ",
+        "gen"
+    ],
+    "\u5bc6\u94a5\u751f\u6210": [
+        "\u5bc6\u94a5",
+        "\u751f\u6210"
+    ],
+    "ssh\u8fde\u63a5": [
+        "ssh",
+        "\u8fde\u63a5"
+    ],
+    "ssh\u767b\u9646": [
+        "ssh",
+        "\u767b\u9646"
+    ],
+    "\u8fdc\u7a0b\u767b\u9646": [
+        "\u8fdc\u7a0b\u767b\u9646"
+    ],
+    "\u6587\u4ef6\u4f20\u8f93": [
+        "\u6587\u4ef6\u4f20\u8f93"
+    ],
+    "\u8fdc\u7a0b\u4f20\u8f93\u6587\u4ef6": [
+        "\u8fdc\u7a0b",
+        "\u4f20\u8f93",
+        "\u6587\u4ef6"
+    ],
+    "scp": [
+        "scp"
+    ],
+    "rsync": [
+        "rsync"
+    ],
+    "curl": [
+        "curl"
+    ],
+    "post": [
+        "post"
+    ],
+    "get": [
+        "get"
+    ],
+    "\u67e5\u770b\u8fde\u63a5": [
+        "\u67e5\u770b",
+        "\u8fde\u63a5"
+    ],
+    "TCP\u8fde\u63a5": [
+        "TCP",
+        "\u8fde\u63a5"
+    ],
+    "UDP\u8fde\u63a5": [
+        "UDP",
+        "\u8fde\u63a5"
+    ],
+    "\u5de5\u4f5c\u8def\u5f84": [
+        "\u5de5\u4f5c",
+        "\u8def\u5f84"
+    ],
+    "\u641c\u7d22\u5b57\u7b26": [
+        "\u641c\u7d22",
+        "\u5b57\u7b26"
+    ],
+    "awk\u793a\u4f8b": [
+        "awk",
+        "\u793a\u4f8b"
+    ],
+    "\u6587\u4ef6\u5185\u5bb9\u5904\u7406": [
+        "\u6587\u4ef6",
+        "\u5185\u5bb9",
+        "\u5904\u7406"
+    ]
+}

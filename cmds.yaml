@@ -1,0 +1,373 @@
+# 对用户输入的内容和desc进行语义相似度计算, 找到完全匹配或者语义相近的cmd
+
+cmds:
+  - desc:
+    - tar包解压缩
+    - tar文件解压
+    - tar.gz文件解压
+    - tar.gz解压命令
+    - 文件夹压缩为tar
+    - tar压缩命令
+    cmd:
+    - |
+      tar -xvf file.tar               # 解压tar包
+      tar -xzvf file.tar.gz           # 解压tar.gz
+      tar -xjvf file.tar.bz2          # 解压tar.bz2
+      tar -xZvf file.tar.Z            # 解压tar.Z
+      tar -cvf jpg.tar *.jpg          # 所有jpg打包tar.jpg
+      tar -czf jpg.tar.gz *.jpg       # 所有jpg先打包jpg.tar再gzip压缩为jpg.tar.gz
+      tar -cjf jpg.tar.bz2 *.jpg      # 所有jpg先打包jpg.tar再bzip2压缩为jpg.tar.bz2
+      tar -cZf jpg.tar.Z *.jpg        # 所有jpg先打包jpg.tar再compress压缩为jpg.tar.Z
+      tar -zcpf file.tar.gz folder    # 将folder先打包file.tar再gzip压缩为file.tar.gz并保留原始文件权限
+
+  - desc:
+    - zip压缩文件
+    - zip压缩命令
+    - zip解压缩
+    - zip文件解压
+    cmd:
+    - |
+      zip -r myfolder.zip myfolder        # 压缩
+      zip -rm myfolder.zip myfolder       # 压缩完毕后删除源文件
+      zip -r /path/myfolder.zip myfolder  # 将压缩文件保存在特定的目录
+      unzip myfolder.zip                  # 解压缩文件
+      unzip myfolder.zip -d path          # 解压缩到指定路径
+
+  - desc:
+    - 时间戳转日期
+    - 日期转时间戳
+    - 时间转换
+    cmd:
+    - |
+      date -d '2023-12-06 00:00:00' +%s         # 日期转为秒级时间戳
+      date -d '2023-12-06 00:00:00' +%s%3N      # 日期转为毫秒级时间戳
+      date -d @1672502400                       # 时间戳转为日期, 毫秒需要先除以1000
+      date -d @1672502400 '+%Y-%m-%d %H:%M:%S'  # 时间戳转为指定格式的日期, 毫秒需要先除以1000
+
+  - desc:
+    - 当前时间戳
+    cmd:
+    - |
+      date +%s           # 秒级时间戳
+      date +%s%3N        # 毫秒级时间戳
+
+  - desc:
+    - 设置时间
+    - 设置时区
+    cmd:
+    - |
+      date -s '2023-01-01 00:00:00'          # 设置系统时间
+      timedatectl set-timezone Asia/Shanghai # 设置时区
+
+  - desc:
+    - 查找文件
+    - find
+    cmd:
+    - |
+      find /path -name example.txt -r -exclude */temp/* # 递归查找文件并排除temp
+      find /path/to/search -mtime -3 -r -user username  # 查找3天内修改的文件并指定用户
+      find /path/to/search -size 1M                     # 按大小查找文件
+      find /path/to/search -r -size -lt 1M              # 查找小于1M的文件
+      find /path/to/search -r -size -gt 10M             # 查找大于10M的文件
+
+  - desc:
+    - 查看磁盘占用
+    cmd:
+    - |
+      du -h -d 1 /path/to/directory              # 查看特定目录下各个子目录的磁盘占用情况
+      df -h                                      # 查看整个系统的磁盘占用情况
+      du -h /path/to/directory --threshold=100M  # 列出大于100M的文件夹
+
+  - desc:
+    - urldecode
+    - urlencode
+    - url编码解码
+    cmd:
+    - |
+      printf $(echo -n $url | sed 's/\\/\\\\/g;s/\(%\)\([0-9a-fA-F][0-9a-fA-F]\)/\\x\2/g')   # urldecode
+      echo $url | tr -d '\n' | xxd -plain | sed 's/\(..\)/%\1/g'                             # urlencode
+
+  - desc:
+    - unicode转中文
+    cmd:
+    - |
+      echo -en $code   # unicode转中文
+
+  - desc:
+    - 文件是否存在
+    - 文件夹是否存在
+    cmd:
+    - |
+      test -f /etc/resolv.conf && echo 'exist'       # 文件是否存在
+      test -d /etc && echo 'exist'                   # 文件夹是否存在
+      test -d /etc && echo 'exist'                   # 对象是否存在
+
+  - desc:
+    - getopts使用
+    - shell脚本参数解析
+    cmd:
+    - |
+      while getopts "ab:" opt
+      do
+          case $opt in
+              a)
+                  ;;
+              b)
+                  ;;
+              ?)
+                  ;;
+          esac
+      done
+      shift $(($OPTIND - 1))
+
+  - desc:
+    - 查找进程
+    - 显示所有进程
+    cmd:
+    - |
+      ps -aux                    # 列出所有进程
+      ps -aux --sort=-%cpu       # 列出所有进程并按照cpu排序
+      ps -aux | grep ssh         # 查找名为ssh的进程
+      ps -eo pid,user,%cpu,%mem  # 只显示进程ID、用户、CPU和内存使用率
+      ps -aux | sort -nk 3       # 列出所有进程并以第三列为基准进行排序
+
+  - desc:
+    - 字符串分割
+    cmd:
+    - |
+      echo 'hello,world' | cut -d ',' -f 1        # 按,分割字符串
+      echo 'hello,world' | awk -F ',' '{print 1}' # 使用awk分割
+      array=(`echo 'hello,world' | tr ',' ' '`)   # 使用tr分割为数组
+
+  - desc:
+    - 字符串替换
+    cmd:
+    - |
+      echo 'hello,world' | sed 's/hello/Hi/g'     # 将hello替换为Hi
+      echo 'hello,world' | tr 'l' 'L'             # 将l替换为L
+      echo 'hello world' | tr -s ' ' '-'          # 空格替换为-
+      sed 's/hello/Hi/g' file.txt > new_file.txt  # 读取文件替换Hello为Hi
+
+  - desc:
+    - for循环
+    - 数值for循环
+    - 遍历数组
+    - while循环
+    cmd:
+    - |
+      # 遍历数值序列
+      for i in $(seq 1 5); 
+      do
+          echo $i;
+      done
+
+      # 遍历从1到5的数值
+      for ((i=1;i<=5;i++));
+      do
+          echo $i;
+      done
+
+      arr=(ele1 ele2 ele3);
+      # for循环遍历数组
+      for i in $(seq 0 $((${#arr[@]} - 1)));
+      do
+          echo ${arr[$i]};
+      done
+
+      # 使用for in遍历数组
+      for i in \"${arr[@]}\";
+      do
+          echo $i;
+      done
+      # 使用while循环遍历
+      while [ $i -lt ${#arr[@]} ];
+      do
+          echo ${arr[$i]};
+          let i++;
+      done
+
+  - desc:
+    - 文件遍历
+    - 递归遍历文件夹
+    cmd:
+    - |
+      # 遍历文件
+      for file in $(ls path);
+      do
+          echo $file;
+      done
+
+      # 递归遍历所有文件并每个文件执行echo命令
+      find folder -type f -exec echo {} \;
+
+  - desc:
+    - 查看端口占用
+    cmd:
+    - |
+      netstat -tunlp | grep 80  # 查看使用80端口号的进程
+      isof -i:80                # 查看使用80端口号的进程
+
+  - desc:
+    - if
+    - 判断
+    cmd:
+    - |
+      if [ "$var" == "0" ]; then
+          echo 变量等于0
+      elif [ "$var" -gt "0" ]; then
+          echo 变量大于0
+      elif [ "$var" -lt "0" ]; then
+          echo 变量小于0
+      fi
+
+    - |
+      if (( var == 0 )); then
+          echo 整数变量等于0
+      elif (( var > 0 )); then
+          echo 整数变量大于0
+      elif (( var < 0 )); then
+          echo 整数变量小于0
+      fi
+
+  - desc:
+    - 进制转换
+    cmd:
+    - |
+      printf '%X\n' num   # 转换num为16进制
+      printf '%o\n' num   # 转换num为8进制
+      printf '%o\n' num   # 转换num为8进制
+      printf '%d\n' 0Xnum # 转换16进制num为10进制
+      printf '%d\n' 0num  # 转换8进制num为10进制
+
+  - desc:
+    - ssh key gen
+    - 密钥生成
+    cmd:
+      - |
+        # -t 指定密钥类型,默认是rsa可以省略 -C 设置注释文字比如邮箱 -f 指定密钥文件存储文件名
+        ssh-keygen -t rsa -C "your_email@example.com"
+
+        ssh -T git@github.com               # 测试密钥
+        ssh-keygen -F example.com           # 检查某个主机名是否在known_hosts文件里面
+        ssh-keygen -R example.com           # 指定的主机公钥指纹移出known_hosts文件
+        ssh-copy-id -i key_file user@host   # 自动上传公钥
+
+  - desc:
+    - ssh连接
+    - ssh登陆
+    - 远程登陆
+    cmd:
+      - |
+        # 指定端口号, 用户名
+        ssh -p port user@host
+        # 使用密钥登陆
+        ssh -p port user@host -i ./id_rsa
+
+  - desc:
+    - 文件传输
+    - 远程传输文件
+    - scp
+    - rsync
+    cmd:
+      - |
+        scp local_file remote_username@remote_ip:remote_file          # 从本地服务器同步到远程服务器
+        scp -r remote_folder remote_username@remote_ip:remote_folder  # 从本地服务器同步到远程服务器
+        scp root@192.168.1.1:/file.tar.gz /data/                      # 从远程复制文件到本地目录
+
+        # 复制文件并对文件校验, -a参数可以替代-r, 除了可以递归同步以外, 还可以同步元信息
+        rsync -a --checksum folder1 folder2
+        # 如果只想同步源目录source里面的内容到目标目录destination, 则需要在源目录后面加上斜杠
+        rsync -a source/ destination
+
+        rsync -anv source/ destination                                        # 不真的执行命令, 只模拟执行的结果
+        rsync -av --delete source/ destination                                # 删除只存在于目标目录、不存在于源目录的文件
+        rsync -av source/ username@remote_host:destination                    # 本地内容同步到远程服务器
+        rsync -av username@remote_host:source/ destination                    # 远程内容同步到本地
+        rsync -a --delete --link-dest /compare/path /source/path /target/path # 增量备份
+
+  - desc:
+    - curl
+    - post
+    - get
+    cmd:
+      - |
+        # 测试网页返回值
+        curl -o /dev/null -s -w %{http_code} www.linux.com
+        # 保存http的response里面的cookie信息
+        curl -c cookiec.txt  http://www.linux.com
+        # 保存http的response里面的header信息
+        curl -D cookied.txt http://www.linux.com
+        # 使用cookie
+        curl -b cookiec.txt http://www.linux.com
+        # 指定浏览器去访问网站
+        curl -A "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.0)" http://www.linux.com
+        # 伪造referer
+        curl -e "www.linux.com" http://mail.linux.com
+        # 循环下载
+        curl -O http://www.linux.com/dodo[1-5].JPG
+        # 分块下载
+        curl -r 0-100 -o dodo1_part1.JPG http://www.linux.com/dodo1.JPG
+        curl -r 100-200 -o dodo1_part2.JPG http://www.linux.com/dodo1.JPG
+        curl -r 200- -o dodo1_part3.JPG http://www.linux.com/dodo1.JPG
+        cat dodo1_part* > dodo1.JPG
+        # 断点续传
+        curl -C -O http://www.linux.com/dodo1.JPG
+        # curl get
+        curl http://www.example.com/example?param1=1&param2=2
+        # curl post
+        curl -i -X POST -H "'Content-type':'application/json'" -d '{"a":"1","b":"2"}' http://www.example.com/Post
+
+  - desc:
+    - 查看连接
+    - TCP连接
+    - UDP连接
+    cmd:
+      - |
+        netstat -an | grep tcp # 显示所有tcp连接
+        netstat -an | grep tcp # 显示所有udp连接
+        netstat -an | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}' # 统计tcp连接每种状态的连接的数量
+
+  - desc:
+    - 工作路径
+    cmd:
+      - |
+        worker_dir=$(cd $(dirname $0);pwd) # 脚本工作路径获取
+
+  - desc:
+    - 搜索字符
+    cmd:
+      - |
+        grep -ni 'nobody' filename      # 查询字符并显示行号, 并忽略大小写
+        grep -nw 'nobody' filename      # 匹配整个单词, 显示行号
+        grep -v 'nobody' /root          # 反转匹配
+        grep -lr 'root' folder          # 列出文件名中包含root的文件
+        grep -n '^$' publish.sh         # 显示所有空行
+        grep -e nobody -e mail /root    # 搜索多个模式
+        grep 'nobody' -B 2 filename     # 打印在模式匹配之后的2行
+        grep 'nobody' -A 2 filename     # 打印在模式匹配之前的2行
+        grep 'nobody' -C 2 filename     # 打印在模式匹配周围的2行
+        grep 'A\|B' filename            # 匹配包含A或B的行
+
+  - desc:
+    - awk示例
+    - 文件内容处理
+    cmd:
+      - |
+        # 删除第1列, 然后删除行首空格, 替换逗号为空格
+        awk '{$1="";gsub(/^[ \t]+/, "", $0);gsub(/,/, " ", $0);print $0}' filename
+        # 统计目录下所有文件的size总和
+        ll | awk '{x+=$5}END{print x}'
+        # 查看当前系统磁盘占用率, 查出占用率大于等于百分之10的磁盘名称及占用率
+        df | awk -v FS=% '$0 ~ "/dev/sd" {print $1}' |awk '$NF>=10 {printf "DevName:%-10s Used:%s%%\n",$1,$5}'
+        # 用[,]作为分隔符打印所有第1列小于第2段的行
+        awk -F ':' '$1<$2' tmp.log
+        # 用空格作为分隔符打印第1列以及最后一列,中间用#连接
+        awk -F ' ' '{print $1"#"$NF}' tmp.log
+        # 第一列求和
+        awk -F':' '{(sum+=$1)}; END {print sum}' tmp.log
+        # 输出奇数行
+        awk -F : '{if(NR%2!=0) print $0}' tmp.log
+        # 用空格作为分隔符打印第二列不是root的行
+        awk -F ' ' '{if($2!="root") print $2}' tmp.log
+
+
