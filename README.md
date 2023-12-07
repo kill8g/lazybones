@@ -11,7 +11,8 @@ Command Quick Lookup Tool
 
 例如:
 `python lazybones.py -t 如何遍历文件夹内的所有文件`
-lazybones会告诉你一些常用的示例
+
+lazybones会根据你的输入内容会告诉你一些常用的命令示例
 ```shell
 # 遍历文件
 for file in $(ls path);
