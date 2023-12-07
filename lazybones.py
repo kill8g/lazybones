@@ -111,22 +111,6 @@ class Lazybones:
         with open(".cache.json", "w") as f:
             f.write(json_data)
 
-    # def run_shell(self, shell):
-    #     cmd = subprocess.Popen(shell, 
-    #         stdin = subprocess.PIPE, 
-    #         stderr = subprocess.PIPE,
-    #         stdout = subprocess.PIPE, 
-    #         universal_newlines = True, 
-    #         shell = True, 
-    #         bufsize = 1
-    #     )
-    #     while True:
-    #         line = cmd.stdout.readline()
-    #         console.print(line, end = '')
-    #         if subprocess.Popen.poll(cmd) == 0:  # 判断子进程是否结束
-    #             break
-    #     return cmd.returncode
-
     def run_shell(self, shell):
         cmd = subprocess.Popen(shell, 
             stdin = subprocess.PIPE, 
